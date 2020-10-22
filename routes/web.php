@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,14 @@ Route::get('/about/{name}',[homeController::class,'para'])->name('about.para');
 Route::get('/blog/{name?}',[homeController::class,'blog'])->name('blog.blog');
 //for single data
 Route::get('/user',[userController::class,'index'])->name('user.index');
+
+//get request---to see all post
+Route::get('/posts',[ClientController::class,'getAllpost'])->name('posts.getAllpost');
+//get request--to see individual post
+Route::get('/posts/{id}',[ClientController::class,'getPostById'])->name('posts.getPostById');
+//post request
+Route::get('/add-post',[ClientController::class,'addPost'])->name('posts.add');
+//put request (to update)
+Route::get('/update-post',[ClientController::class,'updatePost'])->name('posts.updatePost');
+//delete post
+Route::get('/delete-post/{id}',[ClientController::class,'deletePost'])->name('posts.delete');
