@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,5 @@ Route::get('/home',[homeController::class,'index']);
 Route::get('/about/{name}',[homeController::class,'para'])->name('about.para');
 //optional parameter passing
 Route::get('/blog/{name?}',[homeController::class,'blog'])->name('blog.blog');
+//for single data
+Route::get('/user',[userController::class,'index'])->name('user.index');
