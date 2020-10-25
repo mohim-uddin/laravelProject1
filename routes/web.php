@@ -42,5 +42,6 @@ Route::get('/delete-post/{id}',[ClientController::class,'deletePost'])->name('po
 ///to http get method 
 Route::get('/sample',[SampleController::class,'sample'])->name('sample.sample');
 
-Route::get('/login',[LoginController::class,'index'])->name('login.index');
+Route::get('/login',[LoginController::class,'index'])->name('login.index')->middleware('checkUser');
 Route::post('/login',[LoginController::class,'loginsubmit'])->name('login.submit');
+
