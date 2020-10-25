@@ -5,6 +5,8 @@ use App\Http\Controllers\homeController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\SampleController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +39,8 @@ Route::get('/add-post',[ClientController::class,'addPost'])->name('posts.add');
 Route::get('/update-post',[ClientController::class,'updatePost'])->name('posts.updatePost');
 //delete post
 Route::get('/delete-post/{id}',[ClientController::class,'deletePost'])->name('posts.delete');
+///to http get method 
+Route::get('/sample',[SampleController::class,'sample'])->name('sample.sample');
+
+Route::get('/login',[LoginController::class,'index'])->name('login.index');
+Route::post('/login',[LoginController::class,'loginsubmit'])->name('login.submit');
