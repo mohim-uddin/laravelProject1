@@ -50,6 +50,19 @@ Route::post('/login',[LoginController::class,'loginsubmit'])->name('login.submit
 Route::get('/session/get',[SessionController::class,'getSessionData'])->name('session.get');
 Route::get('/session/set',[SessionController::class,'storeSessionData'])->name('session.store');
 Route::get('/session/delete',[SessionController::class,'deleteSessionData'])->name('session.remove');
+//to see all post
+Route::get('/posts',[postController::class,'allPost'])->name('Posts.allPost');
+//to add a single post
+Route::get('/add-post',[postController::class,'addPost'])->name('Posts.add');
 
-Route::get('/posts',[postController::class,'index'])->name('Posts.index');
+Route::post('/add-post',[postController::class,'addPostSubmit'])->name('post.addsubmit');
+//to see single post
+Route::get('/posts/{id}',[postController::class,'getPostById'])->name('post.getPostById');
+//to delete post
+Route::get('/delete-post/{id}',[postController::class,'deletePost'])->name('post.delete');
+//to edit 
+Route::get('/edit-post/{id}',[postController::class,'editPost'])->name('post.edit');
+//to update
+Route::post('/update-post',[postController::class,'updatePost'])->name('post.update');
+
 
