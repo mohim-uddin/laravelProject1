@@ -45,7 +45,7 @@ class postController extends Controller
         $post = DB::table('posts')->where('id',$id)->first();
         return view('edit-post',compact('post'));
     }
-    //ti update post
+    //to update post
 
     public function updatePost(Request $request)
     {
@@ -55,5 +55,30 @@ class postController extends Controller
         ]);
         //return back('edit-post',compact('post'));
         return back()->with('post_updated','post has been updated successfully');
+    }
+    //to inner join
+    public function innerJoinCluse()
+    {
+        $request = DB::table('users')
+        ->join('posts','users.id', '=','posts.user_id')
+        ->select('users.name','posts.title','posts.body')
+        ->get();
+        return $request;
+    }
+    //to left join
+    public function leftJoinCluse()
+    {
+        $result = DB::table('users')
+        ->leftjoin('posts','users.id', '=','posts.user_id')
+        ->get();
+        return $result;
+    }
+    //to right join
+    public function rightJoinCluse()
+    {
+        $result = DB::table('users')
+        ->rightjoin('posts','users.id', '=','posts.user_id')
+        ->get();
+        return $result;
     }
 }
